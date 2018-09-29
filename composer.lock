@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "06f9f3893dd0eeda77f8e8be280da18a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2201,6 +2201,62 @@
             "time": "2018-08-02T09:24:26+00:00"
         },
         {
+            "name": "techfix/support",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techfix/support.git",
+                "reference": "6b650a025b72585f2ef71b491a4ccba737c6d0fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techfix/support/zipball/6b650a025b72585f2ef71b491a4ccba737c6d0fd",
+                "reference": "6b650a025b72585f2ef71b491a4ccba737c6d0fd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.7",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "TechFix\\Support\\SupportProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TechFix\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "TechFix",
+                    "email": "support@techfix.org"
+                }
+            ],
+            "description": "TechFix Laravel Support Package",
+            "keywords": [
+                "laravel",
+                "support",
+                "techfix"
+            ],
+            "time": "2018-09-29T22:18:02+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
@@ -4059,7 +4115,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "techfix/support": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
