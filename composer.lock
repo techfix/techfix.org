@@ -2206,12 +2206,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/techfix/support.git",
-                "reference": "6b650a025b72585f2ef71b491a4ccba737c6d0fd"
+                "reference": "6a0abbada5f80659818deb8b0ae1b5182c24d5a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/techfix/support/zipball/6b650a025b72585f2ef71b491a4ccba737c6d0fd",
-                "reference": "6b650a025b72585f2ef71b491a4ccba737c6d0fd",
+                "url": "https://api.github.com/repos/techfix/support/zipball/6a0abbada5f80659818deb8b0ae1b5182c24d5a3",
+                "reference": "6a0abbada5f80659818deb8b0ae1b5182c24d5a3",
                 "shasum": ""
             },
             "require": {
@@ -2254,7 +2254,7 @@
                 "support",
                 "techfix"
             ],
-            "time": "2018-09-29T22:18:02+00:00"
+            "time": "2018-09-29T22:27:47+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
