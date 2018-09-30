@@ -1,0 +1,126 @@
+version: '3'
+services:
+  redis:
+    image: redis:latest
+
+  mysql: 
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=techfix
+      - MYSQL_DATABASE=techfix
+      - MYSQL_USER=techfix
+      - MYSQL_PASSWORD=techfix
+  
+  mail:
+    image: mailhog/mailhog:latest
+    ports:
+      - 8085:8025
+
+  techfix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      - APP_NAME=TechFix
+      - APP_ENV=local
+      - APP_KEY=base64:Mgqlv80mvKzlxID69ZNr0sfPAEH5fxp554yMrds+sQE=
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8080
+      - LOG_CHANNEL=stack
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=techfix
+      - DB_USERNAME=techfix
+      - DB_PASSWORD=techfix
+      - BROADCAST_DRIVER=redis
+      - CACHE_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - SESSION_DRIVER=redis
+      - SESSION_LIFETIME=120
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - MAIL_DRIVER=smtp
+      - MAIL_HOST=mail
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+    ports:
+      - 8080:80
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      - APP_NAME=TechFix
+      - APP_ENV=local
+      - APP_KEY=base64:Mgqlv80mvKzlxID69ZNr0sfPAEH5fxp554yMrds+sQE=
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8080
+      - LOG_CHANNEL=stack
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=techfix
+      - DB_USERNAME=techfix
+      - DB_PASSWORD=techfix
+      - BROADCAST_DRIVER=redis
+      - CACHE_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - SESSION_DRIVER=redis
+      - SESSION_LIFETIME=120
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - MAIL_DRIVER=smtp
+      - MAIL_HOST=mail
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - WORKER=true
+
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      - APP_NAME=TechFix
+      - APP_ENV=local
+      - APP_KEY=base64:Mgqlv80mvKzlxID69ZNr0sfPAEH5fxp554yMrds+sQE=
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8080
+      - LOG_CHANNEL=stack
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=techfix
+      - DB_USERNAME=techfix
+      - DB_PASSWORD=techfix
+      - BROADCAST_DRIVER=redis
+      - CACHE_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - SESSION_DRIVER=redis
+      - SESSION_LIFETIME=120
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - MAIL_DRIVER=smtp
+      - MAIL_HOST=mail
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - CRON=true
