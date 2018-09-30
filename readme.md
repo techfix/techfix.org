@@ -4,7 +4,7 @@
 
 - Install Docker [Guide](https://docs.docker.com/install)
 - Install Git [Guide](https://git-scm.com/downloads)
-- Clone this repository `git clone git@github.com:techfix/techfix.org.git'
+- Clone this repository `git clone git@github.com:techfix/techfix.org.git`
 - cd into the repo `cd techfix.org`
 - Run the application `docker-compose up -d`
 - Migrate the database `docker-compose exec techfix bash -c "php artisan migrate"`
