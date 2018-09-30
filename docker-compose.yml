@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   redis:
     image: redis:latest
@@ -23,6 +23,8 @@ services:
     depends_on:
       - mysql
       - redis
+    volumes:
+      - .:/var/www/html
     environment:
       - APP_NAME=TechFix
       - APP_ENV=local
@@ -60,6 +62,8 @@ services:
     depends_on:
       - mysql
       - redis
+    volumes:
+      - .:/var/www/html
     environment:
       - APP_NAME=TechFix
       - APP_ENV=local
@@ -96,6 +100,8 @@ services:
     depends_on:
       - mysql
       - redis
+    volumes:
+      - .:/var/www/html
     environment:
       - APP_NAME=TechFix
       - APP_ENV=local
