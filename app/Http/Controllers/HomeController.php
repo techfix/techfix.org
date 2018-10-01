@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Issue;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $issues = Issue::all();
+        return view('home')->with([
+            'issues' => $issues
+        ]);
     }
 }
