@@ -40,4 +40,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
     }
+
+    /**
+     * Get all of the users issues.
+     */
+    public function issues()
+    {
+        return $this->morphMany('App\Issue', 'issueable');
+    }
 }

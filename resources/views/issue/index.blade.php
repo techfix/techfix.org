@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Issues</div>
+                <div class="card-header clearfix">
+                    <h5 class="float-left m-0 pt-2">Issues</h5>
+                    <a href="{{ route('issues.create') }}" class="btn btn-primary float-right">+ New Issue</a>
+            </div>
 
                 <div class="card-body p-0">
                     @if (session('status'))

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Issue;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateIssueRequest;
 
 class IssueController extends Controller
 {
@@ -24,7 +26,7 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issues = Issue::all();
+        $issues = Issue::orderBy('updated_at', 'desc')->get();
 
         return view('issue.index')->with([
             'issues' => $issues
@@ -38,7 +40,7 @@ class IssueController extends Controller
      */
     public function create()
     {
-        //
+        return view('issue.create');
     }
 
     /**
@@ -47,9 +49,17 @@ class IssueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateIssueRequest $request)
     {
-        //
+        $issue = Issue::create([
+            'uuid' => Str::uuid(),
+            'title' => $request->title,
+            'issue' => $request->issue,
+            'issueable_id' => auth()->user()->id,
+            'issueable_type' => 'App\User',
+        ]);
+
+        return redirect()->route('issues.index')->with('status', 'Your issue was successfully created!');
     }
 
     /**

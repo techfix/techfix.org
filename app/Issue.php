@@ -15,6 +15,8 @@ class Issue extends Model
         'uuid', 
         'title', 
         'issue',
+        'issueable_id',
+        'issueable_type',
     ];
 
     /**
@@ -25,5 +27,13 @@ class Issue extends Model
     public function getRouteKeyName()
     {
         return 'uuid';
+    }
+
+    /**
+     * Get all of the owning issueable models.
+     */
+    public function issueable()
+    {
+        return $this->morphTo();
     }
 }
