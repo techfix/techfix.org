@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header clearfix">
                     <h5 class="float-left m-0 pt-2">Issues</h5>
-                    <a href="{{ route('issues.create') }}" class="btn btn-primary float-right">+ New Issue</a>
+                    <a href="{{ route('issues.create') }}" class="btn btn-red float-right">+ New Issue</a>
             </div>
 
                 <div class="card-body p-0">

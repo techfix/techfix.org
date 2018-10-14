@@ -1,0 +1,11 @@
+.btn {
+    @apply py-2 px-4;
+}
+
+.btn-red {
+    @apply bg-red text-white;
+}
+
+.btn-red:hover {
+    @apply bg-grey-dark text-white;
+}
